@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace DeceasedLatch
 {
@@ -12,7 +14,12 @@ namespace DeceasedLatch
 
         public void Run()
         {
-
+            DataStorerDeadlock dataStorer = new DataStorerDeadlock();
+            while (true)
+            {
+                dataStorer.ConcurrencyTest();
+                Console.ReadLine();
+            }
         }
     }
 }
